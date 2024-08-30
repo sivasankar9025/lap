@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkmark {
+            font-size: 50px;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+
+        .go-back {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .go-back:hover {
+            color: #0056b3;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 10px;
+            font-size: 12px;
+            color: #6c757d;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        footer a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="checkmark">&#10003;</div>
+        <h1>Your form has been submitted.</h1>
+    </div>
+    <footer>
+        Powered by <a href="https://kascps123.onrender.com/" target="_blank">Formspark</a>.
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <script>
+        // Redirect after 5 seconds
+        setTimeout(function(){
+            window.location.href = "./index.html";
+        }, 1000);
+    </script>
+</body>
+</html>

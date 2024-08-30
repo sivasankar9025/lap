@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #e0e7ff;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 25px;
+            color: #3f51b5;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: #3f51b5;
+            outline: none;
+        }
+
+        select {
+            appearance: none;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNSIgdmlld0JveD0iMCAwIDEwIDUiIGZpbGw9IiM0MDFBMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAuNSAwaDEwTDUgNS41eiIvPjwvc3ZnPg==') no-repeat right 12px center;
+            background-size: 12px;
+            cursor: pointer;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #3f51b5;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #3949ab;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            background-color: #303f9f;
+            transform: translateY(1px);
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: #388e3c;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>REMOVE USER</h2>
+        <form id="registrationForm">
+            <label for="role">Role:</label>
+            <select id="role" name="role" required>
+                <option value="" disabled selected>Select your role</option>
+                <option value="admin">Admin</option>
+                <option value="staff">Staff</option>
+                <option value="student">Student</option>
+            </select>
+            
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username or email" required>
+
+
+            <button type="submit">Remove</button>
+        </form>
+        <div id="message"></div>
+    </div>
+    <script>
+        // Check if token is present in localStorage, if not, show a message
+        if (localStorage.getItem("token") === null) {
+            document.body.innerHTML = "Require Token";
+        }
+
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const role = document.getElementById('role').value;
+
+            async function store() {
+                try {
+                    const token = localStorage.getItem("token");
+                    const response = await fetch('https://kasc.vercel.app/api/register/rm', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`,
+                        },
+                        body: JSON.stringify({ username,role }),
+                    });
+                    console.log(response)
+
+                    if (response.ok) { // Check if the response status is 2xx
+                        console.log("Remove successful");
+                        document.querySelector('form').style.display = 'none';
+                        document.getElementById('message').style.display = 'block';
+                        document.getElementById('message').textContent = ` ${username}! deleted.`;
+                    } else {
+                        const errorMessage = await response.text();
+                        console.log(`Remove failed: ${errorMessage}`);
+                        alert('Remove failed. Please try again.');
+                    }
+                } catch (error) {
+                    console.log('An error occurred:', error);
+                    alert('An error occurred during remove. Please check your connection or try again later.');
+                }
+            }
+
+            if (username && role) {
+                store();
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+    </script>
+</body>
+</html>

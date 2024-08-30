@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Authentication and Role-Based Content</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .custom-button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #0288d1; /* Default button color */
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 250px;
+        }
+
+        .custom-button span {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .custom-button .divider {
+            width: 1px;
+            height: 24px;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin: 0 15px;
+        }
+
+        #rm {
+            background-color: #c00505;
+        }
+
+        #add {
+            background-color: #3ba541;
+        }
+
+        .custom-button i {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="button-container">
+       
+
+        <button id="add" class="custom-button">
+            <i class="fas fa-user-plus"></i>
+            <div class="divider"></div>
+            <span>Add User</span>
+        </button>
+
+        <button id="rm" class="custom-button">
+            <i class="fas fa-eraser"></i>
+            <div class="divider"></div>
+            <span>Remove Users</span>
+        </button>
+    </div>
+
+    <script>
+        document.getElementById("rm").addEventListener("click", () => {
+            window.location.href = "./removeuser.html";
+        });
+
+        document.getElementById("add").addEventListener("click", () => {
+            window.location.href = "./page.html";
+        });
+    </script>
+</body>
+
+</html>
