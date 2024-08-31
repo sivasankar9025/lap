@@ -1,3 +1,4 @@
+/* Hide Elements by Default */
 .hidden {
     display: none;
 }
@@ -5,10 +6,12 @@
 #res {
     display: none;
 }
+
 #registerFormContainer {
     display: none;
 }
 
+/* Default Styles for Desktop and Larger Screens */
 .container-admin {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -18,7 +21,7 @@
     height: 100vh;
     background-color: #f5f5f5;
     width: 100%;
-    padding: 20px; /* Add padding for mobile spacing */
+    padding: 20px; /* Add padding for spacing */
     box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
@@ -26,7 +29,7 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 100%; /* Ensure buttons take full width on mobile */
+    width: 100%; /* Ensure buttons take full width */
     max-width: 300px; /* Limit max width */
 }
 
@@ -39,7 +42,7 @@
     cursor: pointer;
     color: white;
     font-size: 16px;
-    width: 100%; /* Full width for buttons on mobile */
+    width: 100%; /* Full width for buttons */
     max-width: 250px; /* Limit max width */
     transition: transform 0.3s ease;
     text-align: left;
@@ -75,6 +78,7 @@
     transform: translateY(-5px);
 }
 
+/* Specific Button Styles */
 .button-questions {
     background: linear-gradient(145deg, #0c6d4a, #107662);
 }
@@ -87,6 +91,15 @@
     background: linear-gradient(145deg, #6b0000, #750202);
 }
 
+.button-register {
+    background: linear-gradient(145deg, #16a31b, #17a11e);
+}
+
+.button-program {
+    background: linear-gradient(145deg, #9c27b0, #ba68c8);
+}
+
+/* Logout Button */
 .button-logout {
     background: linear-gradient(145deg, #df0303, #ea0b0b);
     position: fixed;
@@ -100,51 +113,50 @@
     z-index: 1000;
 }
 
-.button-register {
-    background: linear-gradient(145deg, #16a31b, #17a11e);
-}
-
-.button-program {
-    background: linear-gradient(145deg, #9c27b0, #ba68c8);
-}
-
+/* Content Section */
 .content-section {
     width: 200%;
     height: 100%;
     overflow: hidden;
 }
 
-/* Mobile styles */
+/* Media Queries for Mobile Devices (Max Width: 768px) */
 @media (max-width: 768px) {
+    /* Adjust Container for Mobile */
     .container-admin {
         flex-direction: column;
         height: auto;
         padding: 10px;
     }
 
+    /* Adjust Button Container */
     .button-container {
         gap: 10px;
         max-width: 100%;
     }
 
+    /* Adjust Styled Buttons for Mobile */
     .styled-button {
         padding: 10px 15px;
         font-size: 14px;
         max-width: 100%;
     }
 
+    /* Adjust Icon Size for Mobile */
     .styled-button .icon {
         width: 30px;
         height: 30px;
         margin-right: 5px;
     }
 
+    /* Adjust Separator for Mobile */
     .styled-button .separator {
         width: 1px;
         height: 30px;
         margin: 0 10px;
     }
 
+    /* Adjust Logout Button for Mobile */
     .button-logout {
         bottom: 10px;
         right: 10px;
