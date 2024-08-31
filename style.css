@@ -16,7 +16,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f5f5f5;
+    background-color: #fff; /* Changed background color to white */
     width:100%;
 }
 
@@ -129,6 +129,7 @@
   .container-admin {
     width: 100%;
     padding: 20px;
+    background-color: #fff; /* Changed background color to white */
   }
   .button-container {
     flex-direction: column;
