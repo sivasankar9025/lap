@@ -1,15 +1,14 @@
+/* Default styles for desktop */
 .hidden {
     display: none;
 }
 
-#res {
+#res{
     display: none;
 }
-
-#registerFormContainer {
+#registerFormContainer{
     display: none;
 }
-
 .container-admin {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -18,17 +17,13 @@
     align-items: center;
     height: 100vh;
     background-color: #f5f5f5;
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    width:100%;
 }
 
 .button-container {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 100%;
-    max-width: 300px;
 }
 
 .styled-button {
@@ -40,12 +35,11 @@
     cursor: pointer;
     color: white;
     font-size: 16px;
-    width: 100%;
-    max-width: 250px;
+    width: 250px;
     transition: transform 0.3s ease;
     text-align: left;
-    background: linear-gradient(145deg, #005b99, #0073e6);
-    text-decoration: none;
+    background: linear-gradient(145deg, #005b99, #0073e6); /* Default gradient */
+    text-decoration: none; /* Remove underline from hyperlinks */
 }
 
 .styled-button .icon {
@@ -87,12 +81,11 @@
 .button-clear {
     background: linear-gradient(145deg, #6b0000, #750202);
 }
-
 .button-logout {
     background: linear-gradient(145deg, #df0303, #ea0b0b);
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 20px; /* Position the button 20px from the bottom */
+    right: 20px; /* Position the button 20px from the right */
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -108,47 +101,49 @@
 .button-program {
     background: linear-gradient(145deg, #9c27b0, #ba68c8);
 }
-
-.content-section {
-    width: 200%;
-    height: 100%;
+.content-section{
+    width:200%;
+    height:100%;
     overflow: hidden;
 }
 
-/* Mobile styles */
-@media (max-width: 768px) {
-    .container-admin {
-        flex-direction: column;
-        height: auto;
-        padding: 10px;
-    }
+/* Media queries for laptop and desktop */
+@media (min-width: 768px) {
+  /* Styles for laptop and desktop */
+  .container-admin {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .button-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .styled-button {
+    width: 200px;
+  }
+}
 
-    .button-container {
-        gap: 10px;
-        max-width: 100%;
-    }
-
-    .styled-button {
-        padding: 10px 15px;
-        font-size: 14px;
-        max-width: 100%;
-    }
-
-    .styled-button .icon {
-        width: 30px;
-        height: 30px;
-        margin-right: 5px;
-    }
-
-    .styled-button .separator {
-        width: 1px;
-        height: 30px;
-        margin: 0 10px;
-    }
-
-    .button-logout {
-        bottom: 10px;
-        right: 10px;
-        padding: 8px 15px;
-    }
+/* Media queries for mobile */
+@media (max-width: 767px) {
+  /* Styles for mobile */
+  .container-admin {
+    width: 100%;
+    padding: 20px;
+  }
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .styled-button {
+    width: 100%;
+    padding: 10px;
+  }
+  .button-logout {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    padding: 10px;
+    border-radius: 0;
+  }
 }
